@@ -1,0 +1,694 @@
+/* para qué era esto???? */
+/* *{
+    padding: 0;
+    margin: 0;
+} */
+html {
+  box-sizing: border-box;
+  /* lo que hace es que no nos afete */
+  font-size: 62.5%; /** Reset para REMS - 62,5% = 10px de 16xp**/
+  /* importante: 62,5% = 10px */
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  /* este codigo junto con
+    html{
+        box-sizing: border-box;
+    sirve para que: si agreaos un ancho de tantos pixeles
+    no se agregue el padding a los pixeles
+    por ejemplo en lo que se ve en la funcion de
+
+    .boton {
+        .
+        .
+        .
+    padding: 5px;
+     es espacio hacia adentro del elemento
+    margin-top: 3rem;
+    los enlaces poseen un display inline, (por default: display: inline;)
+    eso quiere decir que no le pueden aplicar un ancho
+    el ancho se le puede asignar con
+    width: 10px;
+    de esta forma defino un ancho solo si cambio
+     el display de inline a block
+    display: inline-block;
+    }
+    */
+}
+
+body {
+  /* va a plicarle el siguiente CSS a todo el body completo */
+  font-family: "Lato", sans-serif;
+  font-size: 1.6rem;
+  line-height: 2;
+  /* este es el interlineado de 2 renglones */
+}
+/* GLOBALES */
+img {
+  max-width: 100%;
+  /* hace que todas las imagenes sean responsivas, se debe usar en todos los proyectos */
+}
+.contenedor {
+  max-width: 120rem; /*=1200px;*/
+  /* toma una altura maxima, toma todo el espacio que tenga disponible  siempre y cuando no se pase de 1200px */
+  margin: 0 auto 0 auto;
+  /*  el anterior se resume del codigo:
+        margin-left: auto;
+        margin-right: auto;
+    los parametros son como un reloj 12 15 18 21h
+    margin: 0 auto 0 auto;, esto se puede compatctar porque los 2 valores se repiten*/
+}
+
+h1 {
+  font-size: 3.8rem;
+}
+h2 {
+  font-size: 3.4rem;
+}
+h3 {
+  font-size: 3rem;
+}
+h4 {
+  font-size: 2.6rem;
+}
+/* UTILIDADES */
+.seccion {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+/* significa font weigh 300 */
+.fw-300 {
+  font-weight: 300;
+  /* son los 300 de la fuente cargada con GoogleFonts */
+}
+
+.centrar-texto {
+  text-align: center;
+}
+.d-block {
+  display: block !important;
+}
+.contenido-centrado {
+  max-width: 800px;
+}
+
+/* header */
+.site-header {
+  background-color: #333333;
+  padding: 1rem 0 3rem 0;
+}
+
+/* estoy aplicando 2 clases en el mismo nivel, o un elemento que tenga 2 clases */
+.site-header.inicio {
+  background-image: url(../img/header.jpg);
+  background-position: center center; /* muestra la imagen desde el centro y la va expandiendo */
+  background-size: cover;
+  /* va a forzar que tome todo el espacio disponible tanto en altura como en ancho pero siempre guardando las proporciones  */
+  height: 100vh; /* detecta el tamaño de la pantalla, va a hacer que la altura sea del tamaño de la pantalla */
+  min-height: 60rem; /* este es el tamaño minimo que le dará a la imagen por si el usuario tiene una pantalla muy pequeña */
+}
+
+/* video numero 36 4:30 min */
+.contenido-header {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.contenido-header h1 {
+  color: #ffffff;
+  padding-bottom: 2rem;
+  /* es espacio hacia adentro del elemento */
+  max-width: 60rem;
+  /* es el recuadro donde se encuentra la frase */
+  line-height: 2;
+  /* es el interlineado, no hay que poner rem o pixel */
+}
+
+.barra {
+  display: flex;
+  justify-content: space-between;
+  /* permite alinear uno a la izquierda y el otro a la derecha
+    permite alinear horizontalmente */
+  align-items: center;
+  /*  permite alinear verticalmente
+    align-items; flex-end hacia abajo
+    align-items; flex-start  hacia arriba
+    align-items; center alineado verticalmente */
+  padding-top: 3rem;
+  /* empuja el contenido hacia dentro del elemento */
+}
+
+/* NAVEGACION */
+.navegacion a {
+  /* color: white; */
+  color: rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  /* elimina la linea de abajo del enlace */
+  font-size: 1.8rem; /**18xp = 1.8rem**/
+  /* hace la fuente un poco mas grande */
+  margin-right: 2rem; /**20xp = 2rem**/
+  /* hace que se separen los enlaces */
+  font-family: "Muli", sans-serif;
+}
+.navegacion a:hover {
+  /* estos son pseudo-selectores */
+  color: #718100;
+  /* le da el color cuando te posicionas sobre el enlace */
+}
+
+.navegacion a:last-of-type {
+  /*  este es para el ultimo elemento del enlace */
+  margin: 0;
+}
+
+/* BOTONES */
+.boton:hover{
+  /* forzamos que aparezca la mano al posicionarse sobre boton */
+  cursor: pointer;
+}
+.boton {
+  color: #ffffff;
+  /* color de lo que va adentro del boton */
+  font-weight: 700;
+  /* las letras mas gruesas */
+  text-decoration: none;
+  /* no tienen el subrayado abajo */
+  font-size: 1.8rem;
+  /* hacemos las etras un poco mas grandes que 700 */
+  padding: 1rem 3rem; /*1rem arriba y abajo y 3 rem izq y derecha*/
+  /* es espacio hacia adentro del elemento */
+  margin-top: 3rem;
+  /* los enlaces poseen un display inline, (por default: display: inline;)
+    eso quiere decir que no le pueden aplicar un ancho
+    el ancho se le puede asignar con  */
+  /* de esta forma defino un ancho solo si cambio
+     el display de inline a block*/
+  display: inline-block;
+  /* aqui aplica el display!important */
+  text-align: center;
+  /* es para centrar el contenido de los botones */
+  border: none;
+}
+
+.boton-amarillo {
+  background-color: #e08709;
+}
+.boton-verde {
+  background-color: #718100;
+}
+
+/* ICONOS NOSOTROS */
+.iconos-nosotros {
+  display: flex;
+  /* se aplica a los primeros hijos, es decir a todos los div de "icono" */
+  justify-content: space-between;
+}
+.icono {
+  flex-basis: calc(33.3%-1rem); /*esto le da el ancho */
+  /* toma el 100% y lo divide entre 3 para los 3 elementos */
+  text-align: center;
+  /* va a alinear el contenido que está abajo de los iconos */
+}
+.icono h3 {
+  text-transform: uppercase; /*transforma a mayusculas */
+  /* otras funciones:  */
+  /*text-transform: capitalize; colola la primer letra de cada apalabra en mayusculas*/
+  /*text-transform: lowercase;  minusculas*/
+}
+/* Anuncios */
+/* .flexwrap{
+    flex-wrap: wrap;
+    podria incluir una clase solo con esa funcion pero no queda bien la pagina
+} */
+.contenedor-anuncios {
+  display: flex;
+  justify-content: space-between;
+  /*flex-wrap: wrap;
+    /*este comando deberia servir para que las tarjetas de cada propiedad se vean en 2 filas 3 columnas pero no funciona*/
+  /* por default es nowrap */
+}
+.anuncio {
+  /* flex: 0 0 calc(33.3%-1rem); */
+
+  flex-basis: calc(33.3%-1rem);
+  /*se puede escribir este solo en vez de los 3 siguientes:
+    grow, shrink y basis, em ese orden
+
+    flex-grow: 0; para q el contenido crezca si es posible (0 si no quieres que cambie)
+    flex-shrink: 0; para q el contenido se haga mas pequeño si es posible (0 si no quieres que cambie)
+    /* este contenido se debe hacer mas pequeño si es posible, usualmente el valor 1es el default
+    /* el valor 0 permite que no se encoja y siempre tome el tamaño de la base, es decir de 33,3% , 3 columnas por fila*/
+
+  flex-basis: calc(33.3%-1rem); /* y su base*/
+  border: 1px solid #b5b5b5; /*width, style y color;*/
+  background-color: #f5f5f5;
+  padding: 0.5rem 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.contenido-anuncios {
+  padding: 2rem;
+  /*es lo mismo que poner en este orden:
+    padding-top: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;;
+    padding-left: 2rem;
+    como sin todos iguales directamente se pone 2rem*/
+}
+.contenido-anuncios h3,
+.contenido-anuncios p {
+  margin: 0;
+}
+.precio {
+  color: #718100;
+  font-weight: 700;
+}
+
+.iconos-caracteristicas {
+  list-style: none;
+  /* elimina las viñetas de los iconos */
+  padding: 0;
+  display: flex;
+  /* habilita flex box */
+  max-width: 500px;
+  flex: 1;
+  /* para que crezca pero siempre limitado */
+}
+.iconos-caracteristicas li {
+  flex: 1;
+  display: flex;
+}
+.iconos-caracteristicas li img {
+  margin-right: 2rem;
+  /* agrega separacion entre el icono (img) y el numero (li)  */
+}
+
+.ver-todas {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* CONTACTO HOME */
+.imagen-contacto {
+  background-image: url(../img/encuentra.jpg);
+  background-position: center center;
+  /* posicionamos la imagen */
+  background-size: cover;
+  /* la imagen se expande y ocupa todo el contenedor */
+  height: 40rem;
+  /* le da la altura a la imagen */
+  display: flex;
+  /* para habilitar flex box */
+  align-items: center;
+  /* para hacer que lo centre verticalmente */
+}
+.contenido-contacto {
+  flex: 1;
+  /* se conoce como factor de crecimiento
+    detecta cuanto tamaño hay disponible, detecta cuántos elementos hay
+    segun eso le asigna cierta cantidad de pixeles */
+  color: #ffffff;
+}
+.contenido-contacto p {
+  font-size: 1.8rem;
+}
+/* Seccion Inferior */
+.seccion-inferior {
+  display: flex;
+  justify-content: space-between;
+  /* acomoda el primer nivel es decir, el blog y testimoniales */
+}
+.seccion-inferior .blog {
+  flex-basis: 60%;
+  /* la base va a ser un poco mas grande que la de testimoniales */
+}
+.seccion-inferior .testimoniales {
+  flex-basis: calc(40% - 2rem);
+  /* testimoniales va a ocupar el 40% - 2 rem  */
+}
+.entrada-blog {
+  display: flex;
+  justify-content: space-between;
+  /* acomoda el primer nivel, es decir lo que hay en imagen y en texto-entrada */
+  margin-bottom: 2rem;
+  /* esto es margin botton, separacion con el siguiente elemento */
+}
+.entrada-blog:last-of-type {
+  margin-bottom: 0;
+  /* la segunda entrada tiene una franja naranja, este margin botton la elimina */
+}
+.entrada-blog .imagen {
+  flex-basis: 40%;
+  /* la imagen ocupará el 40%  */
+}
+.entrada-blog .texto-entrada {
+  flex-basis: calc(60% - 3rem);
+  /* ocupará el 60% menos 3 rem */
+}
+.texto-entrada a {
+  color: #000000;
+  text-decoration: none;
+  /* elimina la linea de abajo del enlace */
+}
+.texto-entrada h4 {
+  margin: 0;
+  line-height: 1.4;
+  /* esto es el interlineado */
+}
+/* estos son pseudo-elementos */
+.texto-entrada h4::after {
+  content: "";
+  display: block;
+  /* le asigno un display */
+  width: 15rem;
+  /* ancho: 150px o 15rem */
+  height: 0.5rem;
+  /* altura de 5px o .5rem */
+  background-color: #718100;
+  margin-top: 1rem;
+  /* podemos poner un margintop porque tenemos un display-block de 10pixeles = 1rem */
+}
+.texto-entrada span {
+  color: #e08709;
+}
+
+/* TESTIMONIALES */
+.testimonial {
+  background-color: rgb(36, 163, 53);
+  /* le doy el borde color verde */
+  font-size: 2.4rem;
+  /* tamaño de ña fuente */
+  padding: 2rem;
+  /* el padding le da un espacio hacia adentro del elemento */
+  color: #ffffff;
+  border-radius: 2rem;
+}
+.testimonial p {
+  text-align: right;
+}
+/* te perimite crear un elemento antes de  */
+.testimonial blockquote::before {
+  /* no se va a ver hasta que le de una tamaño */
+  content: "";
+  background-image: url(../img/comilla.svg);
+  /* la imagen no se va a mostrar hasta que le demos un tamaño */
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  left: -0.5rem;
+  /* posicion de las comillas */
+}
+.testimonial blockquote {
+  position: relative;
+  padding-left: 6rem;
+  font-weight: 300;
+  line-height: 2;
+}
+/* }
+el elemento padre debe tener una posicion relativa
+eso le va a decir al navegador "ponlo en posicion relativa y
+no cambia su posicion por default"
+despues al hijo que quieres posicionarlo lo pones en absoluto */
+
+/* FOOTER */
+.site-footer {
+  background-color: #333333;
+  margin: 0;
+}
+.copyrigth {
+  margin: 0;
+  color: #ffffff;
+}
+.contenedor-footer {
+  padding: 3rem 0;
+  /* 3rem hacia arriba y hacia abajo y cero a izquiera y derecha */
+  display: flex;
+  justify-content: space-between;
+}
+/* PAGINAS INTERNAS */
+/* nosotros */
+.contenido-nosotros {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /*  grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-columns: repeat(2, 1fr);
+    estas son otras formas de decir exactamente lo mismo*/
+  grid-column-gap: 2rem;
+}
+.texto-nosotros blockquote {
+  font-weight: 900;
+  /* para una fuente mas gruesa */
+  font-size: 2rem;
+  /* letra un poco mas grande */
+  margin: 0;
+  /* reseteamos el margin de 25 años por eso queda pegado a la imagen */
+  padding: 1rem 0 3rem 0;
+}
+/* anuncios */
+.resumen-propiedad {
+  display: flex;
+  justify-content: space-between;
+  /* alinea verticalmente */
+  align-items: center;
+  /* alinea horizontalmente */
+}
+
+
+
+/* CONTACTO */
+label{
+  /* va a hacer que todos los label tenganu displayblock */
+  display: block;
+  /* va a hacer que todos los label tomen todo el espacio disponible */
+}
+
+input:not([type="submit"]), textarea, select{
+/* [] es un selector de atributos va a seleccionar el atributo type */
+    padding: 1rem;
+    display: block;
+    width: 100%;    
+    background-color: #e1e1e1;
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 1rem;
+}
+
+select{
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+textarea{
+  height: 20rem;
+}
+
+legend{
+  font-size: 2rem;
+  color: #333333;
+}
+
+.contacto p{
+  font-size: 1.5rem;
+  color: #414141;
+  margin: 2rem 0 0 0;
+}
+
+.forma-contacto{
+  max-width: 20rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+
+
+}
+input[type="radio"]{
+  /* aplica a email y telefono */
+  width: auto;
+  margin: 0;
+}
+
+
+/* la posicion relativa
+.testimonial blockquote{
+    position: absolute;
+}
+la posicion abo */
+
+/* esto significa, creame un elemnto despues del h4 */
+/* son pseudo elemetos porque no los puedes seleccionar, no existen */
+/* no tiene un display definido por o tanto debes definirlo por ejemplo con display block */
+/* en la pagina de firefox puedes encontrar informacion sobre pseudoelemntos */
+
+/* margin: valor1 valor2 valor3 valor4;  */
+/*  los parametros es como un reloj 12 15 18 21h */
+/* 21h: margin-left: auto;  */
+/* 15h: margin-right: auto;  */
+
+/* para agregare una imagen de fondo */
+
+/*
+ Siempre vas a tener un solo archivo donde se colocan todos los estilos que sean
+ relacionados hacia el sitio web
+
+ ejemplo: h1{
+    color: blue;
+}
+
+usualmente está dividido en 3 partes:
+
+ h1 es el selector, es decir el elemento al quemquieres aplicarle el css
+ (puedes aplicarlo a una imagen a un header a un div a un parrafo etc)
+
+ todo lo que esté entre llaves puedes aplicarle como estilos al selector
+ "color:"  es la propiedad de css que vas a aplicarle, usualmente  son definidas por css
+ "blue;"   es el valor, en este caso el color
+
+
+ ejemplo header{
+    background-color: red;
+}
+
+tenemos muchas etiquetas header por lo tanto todas aplicaran los mimos cambios
+para eso existen clases y id, lo utilizamos para aplicar a etiqutas especificas
+
+una clase y un ID es un atributo
+diferencias: una clase PUEDE SER REUTILIZADA pero EXISTE UN SOLO ID
+RECOMENDACION, Tratar de no utilizar ID para CSS (si para JavaScript), tratar de utilizar mas que nada clases
+
+
+si utilizo un ID puede existir SOLO UNO
+puuedes tener muchos IDs pero con nombres dferentes, por pagina puedes tener solo uno
+ejemplo en css:
+#site-header{
+    background-color: lightcoral;
+}
+en el index:
+<header id= "site-header">
+</header
+
+NO PUEDO TENER MULTIPLES ID para la misma etiqueta
+
+
+
+una clase PUEDE SER REUTILIZADA
+
+ejemplo en css:
+.encabezado{
+    color: slateblue;
+}
+
+ejemplo en index
+ <h3 class="encabezado">Seguridad</h3>
+
+*puedes aplicar MULTIPLES CLASES A LA MISMA ETIQUETA
+ejemplo en css:
+.encabezado{
+    color: slateblue;
+
+}
+.mayusculas{
+    text-transform: uppercase;
+}
+
+ejemplo en index:
+<h3 class="encabezado mayusculas">Seguridad</h3>
+
+*justify-content: flex-start; es solo el DEFAULT
+
+
+
+
+
+    /* display: flex;
+    si pones display: flex; no coloquesjustify-content: flex-start; por que es el default y no cambia nada
+
+
+
+    /* solo aplica al primer nivel del index
+    es decir <a href="E:/Proyectos VISUAL.... y a <nav> dentro de clase barra
+    estan son popiedades para alinear horizontalmente
+    justify-content: flex-end;
+    justify-content: flex-start; este es por default por lo que no cambia nada
+    flex-end: lo posiciona del lado derecho (flex-start hacia la izquierda)
+    justify-content: center; para mostrar el ocntenido al centro
+
+    justify-content: space-around; deja el mismo espacio de un lado que del otro
+    distribuye los elementos de forma proporcional
+    justify-content: space-between; permite alinear uno a la izquierda y a el otro la derecha
+    justify-content: space-evenly; deja la misma cantidad de espacio entre todos los elementos
+
+    margin-top: 100px;
+    crea una barra que empuja todo hacia abajo(desde la imagen)
+
+
+
+*  display: flex;
+    //flex box tiene direciones, el default corre de izq a derecha y luego de
+    //flex box afecta solo al primer nivel de hijos, es decir, la barra y el h1 *
+
+*PARA FLEX BOX
+    flex-direction: row;  de izq a derecha
+    flex-direction: row-reverse;  de der a izquierda
+    flex-direction: column; de arriba hacia abajo
+    flex-direction: column-reverse;  de abajo hacia arriba
+
+*modificar texto
+    text-transform: capitalize; transofrma la pimer letra en mayuscula
+    text-transform: uppercase; transofma tod oen mayusculas
+    text-transform: lowercase; todo el munusculas
+
+-ejemplo para central texto y cambiar tamaño de la fuente
+    .encabezado-nosotros{
+    font-weight: 300;
+    text-align: center;
+    }
+    este mismo codigo puede ser reemplazado por
+
+
+*Para hacer los bordes de anuncio
+    border-width: 10px;
+    border-style: solid;
+    border-color: #b5b5b5;
+
+    este mismo codigo puede ser reemplazado por
+    border: 1px solid #b5b5b5;
+
+*para padding
+    padding-top: 2rem;
+    padding-right: 4rem;
+    padding-bottom: 2rem;
+    padding-left: 4rem;
+    este mismo codigo puede ser reemplazado por
+    padding: 2rem 4rem 2rem 4rem;
+    en ese orden top-right, botton, left
+    como los pares de valores son iguales podemos reducirlo un poco mas
+    padding: 2rem 4re;
+
+*inline
+
+  /* los enlaces poseen un display inline, (por default: display: inline;)
+    eso quiere decir que no le pueden aplicar un ancho
+    el ancho se le puede asignar con
+
+    width: 10px;
+    /* de esta forma defino un ancho solo si cambio
+     el display de inline a block
+
+    display: inline-block;
+    puedes aplicarle margind y anchos (width) pero no va a tomar
+    todo el espacio disponible como si fuera un block
+
+    los enlaces al igual que las imagenes son display inline
+
+    display: block;
+    elementos que son display blosk:
+    div, h3, los parrafos, todos son display block por lo qe uedes darle
+    un ancho sin nigun problema
+
+
+ */
